@@ -64,7 +64,7 @@ export const registerForEvent = async (app: FastifyInstance) => {
 				}
 			})
 
-			reply.status(201).send({ attendeeId: attendee.id })
+			return reply.status(201).send({ attendeeId: attendee.id })
 		}
 	)
 }
