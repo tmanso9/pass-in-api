@@ -8,6 +8,9 @@ export const getAttendeeBadge = async (app: FastifyInstance) => {
 		'/attendees/:attendeeId/badge',
 		{
 			schema: {
+				summary: 'Get attendee badge',
+				tags: ['attendees'],
+				description: 'Get an attendee badge by their ID.',
 				params: z.object({
 					attendeeId: z.coerce.number().int()
 				}),
