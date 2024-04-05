@@ -15,8 +15,13 @@ import { getAttendeeBadge } from './routes/getAttendeeBadge'
 import { checkIn } from './routes/checkIn'
 import { getEventAttendees } from './routes/getEventAttendees'
 import { errorHandler } from './errorHandler'
+import fastifyCors from '@fastify/cors'
 
 const app = Fastify()
+
+app.register(fastifyCors, {
+	origin: '*'
+})
 
 app.register(fastifySwagger, {
 	swagger: {
@@ -48,6 +53,6 @@ app.register(checkIn)
 
 app.setErrorHandler(errorHandler)
 
-app.listen({ port: 3000 }).then(() => {
+app.listen({ port: 3000, host: '0.0.0.0' }).then(() => {
 	console.log('HTTP server running on port 3000!')
 })
