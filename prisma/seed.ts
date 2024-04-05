@@ -1,8 +1,12 @@
 import { prisma } from '../src/lib/prisma'
 
 const seed = async () => {
-	await prisma.event.deleteMany({})
-	
+	await prisma.event.delete({
+		where: {
+			id: 'cfb2f402-32a1-4388-acd2-9db8938d7110'
+		}
+	})
+
 	await prisma.event.create({
 		data: {
 			id: 'cfb2f402-32a1-4388-acd2-9db8938d7110',
