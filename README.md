@@ -10,7 +10,18 @@ Registered participants can generate a credential for check-in on the day of the
 
 The system will scan the participant's credential to allow entry to the event.
 
-## Requirements
+1. [Functionality](#functionality)
+    - [Functional Requirements](#functional-requirements)
+    - [Business Rules](#business-rules)
+    - [Non-functional Requirements](#non-functional-requirements)
+2. [Tech Requirements](#tech-requirements)
+3. [Commands](#commands)
+4. [API Documentation (Swagger)](#api-documentation-swagger)
+5. [Database](#database)
+    - [Database structure](#database-structure)
+6. [Tech Stack](#tech-stack)
+
+## Functionality
 
 ### Functional Requirements
 
