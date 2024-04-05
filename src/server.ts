@@ -4,6 +4,7 @@ import { createEvent } from './routes/createEvent'
 import { registerForEvent } from './routes/registerForEvent'
 import { getEvent } from './routes/getEvent'
 import { getAttendeeBadge } from './routes/getAttendeeBadge'
+import { checkIn } from './routes/checkIn'
 
 const app = Fastify()
 
@@ -14,6 +15,7 @@ app.register(createEvent)
 app.register(registerForEvent)
 app.register(getEvent)
 app.register(getAttendeeBadge)
+app.register(checkIn)
 
 app.listen({ port: 3000 }).then(() => {
 	console.log('HTTP server running on port 3000!')
