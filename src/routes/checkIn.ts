@@ -23,6 +23,16 @@ export const checkIn = async (app: FastifyInstance) => {
 		async (request, reply) => {
 			const { attendeeId } = request.params
 
+			const attendee = await prisma.attendee.findUnique({
+				where: {
+					id: attendeeId
+				}
+			})
+
+			if (!attendee){
+				throw new BadRequest('Attendee does not exist.')
+			}
+
 			const attendeeCheckIn = await prisma.checkIn.findUnique({
 				where: {
 					attendeeId
