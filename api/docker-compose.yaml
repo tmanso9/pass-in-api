@@ -6,11 +6,11 @@ services:
     image: postgres:16.2-alpine3.19
     container_name: db-pass-in
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT}:5432
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: pass-in
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: S{POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     networks:
       - pass-in
     volumes:
@@ -22,9 +22,9 @@ services:
       dockerfile: Dockerfile
     container_name: api-pass-in
     ports:
-      - 3000:3000
+      - ${PORT}:3000
     environment:
-      - DATABASE_URL=postgresql://admin:admin@postgres:5432/pass-in
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${POSTGRES_DB}
       - PORT=3000
     depends_on:
       - postgres
