@@ -34,3 +34,5 @@ jobs:
             - name: Push image
               run: |
                   docker push tmanso9/service.passin:${{ steps.generate_sha.outputs.sha}}
+                  docker tag tmanso9/service.passin:${{ steps.generate_sha.outputs.sha}} tmanso9/service.passin:latest
+                  docker push tmanso9/service.passin:latest
