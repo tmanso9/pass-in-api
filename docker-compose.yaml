@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:16.2-alpine3.19
+    container_name: db-pass-in
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: pass-in
+    networks:
+      - pass-in
+    volumes:
+      - 'db:/var/lib/postgresql/data'
+
+  api-pass-in:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-pass-in
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgresql://admin:admin@postgres:5432/pass-in
+      - PORT=3000
+    depends_on:
+      - postgres
+    networks:
+      - pass-in
+  
+networks:
+  pass-in:
+    driver: bridge
+
+volumes:
+  db: 
