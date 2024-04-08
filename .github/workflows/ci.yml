@@ -40,9 +40,9 @@ jobs:
             - name: Update image tag
               uses: fjogeleit/yaml-update-action@main
               with:
-                  branch: main
+                  # branch: main
                   valueFile: 'deploy/values.yaml'
                   propertyPath: 'image.tag'
                   value: ${{ steps.generate_sha.outputs.sha}}
-                  commitChange: true
-                  message: 'feat: updated image tag in helm values'
+                  commitChange: false
+                  # message: 'feat: updated image tag in helm values'
