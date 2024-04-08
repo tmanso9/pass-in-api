@@ -16,6 +16,7 @@ import { checkIn } from './routes/checkIn'
 import { getEventAttendees } from './routes/getEventAttendees'
 import { errorHandler } from './errorHandler'
 import fastifyCors from '@fastify/cors'
+import { health } from './routes/health'
 
 const app = Fastify()
 
@@ -50,6 +51,7 @@ app.register(getEvent)
 app.register(getEventAttendees)
 app.register(getAttendeeBadge)
 app.register(checkIn)
+app.register(health)
 
 app.setErrorHandler(errorHandler)
 
