@@ -5,7 +5,7 @@ metadata:
   name: pass-in-api
   namespace: argocd
   annotations:
-    argocd.argoproj.io/external-link: 'https://argocd.example.com/applications/pass-in-api'
+    link.argocd.argoproj.io/external-link: 'https://argocd.example.com/applications/pass-in-api'
 
 spec:
   project: default
