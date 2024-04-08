@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: tmanso9/service.passin
   pullPolicy: Always
-  tag: b85dc24
+  tag: 9db5f3f
   port: 3000
 imagePullSecrets: []
 nameOverride: ''
