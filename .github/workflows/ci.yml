@@ -30,9 +30,19 @@ jobs:
               with:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
-            
+
             - name: Push image
               run: |
                   docker push tmanso9/service.passin:${{ steps.generate_sha.outputs.sha}}
                   docker tag tmanso9/service.passin:${{ steps.generate_sha.outputs.sha}} tmanso9/service.passin:latest
                   docker push tmanso9/service.passin:latest
+
+            - name: Update image tag
+              uses: fjogeleit/yaml-update-action@main
+              with:
+                  branch: main devops
+                  valueFile: 'deploy/values.yaml'
+                  propertyPath: 'image.tag'
+                  value: ${{ steps.generate_sha.outputs.sha}}
+                  commitChange: true
+                  message: 'Updated image tag in helm values'
