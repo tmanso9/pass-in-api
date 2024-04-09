@@ -23,14 +23,13 @@ FROM node:20-alpine3.19 AS deploy
 
 WORKDIR /usr/src/app
 
-RUN npm i -g prisma
+RUN npm i -g prisma tsx
 
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/prisma ./prisma
-
-RUN npx prisma generate
+COPY --from=build /usr/src/app/src/lib ./src/lib
 
 EXPOSE 3000
 
