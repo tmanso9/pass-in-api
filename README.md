@@ -51,7 +51,9 @@ To run this project, you need:
 
 ## Getting Started
 
-Choose the option that best fits your requirements and environment. Each option provides a different level of control and scalability, so consider your needs before making a decision.
+The API is deployed at https://pass-in-api-3cbc3460e010.herokuapp.com .
+
+For development purposes, choose the option that best fits your requirements and environment. Each option provides a different level of control and scalability, so consider your needs before making a decision.
 
 1. **Build DB with Docker Compose PostgreSQL and API with npm script**:
 
