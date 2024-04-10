@@ -5,6 +5,15 @@ import { Prisma } from '@prisma/client'
 
 const main = async () => {
 	try {
+		const events = await prisma.event.findUnique({
+			where: {
+				id: '1df0f5d8-066d-4c41-b016-f6ca9a241c6a'
+			}
+		})
+		if (events) {
+			console.log('Database already seeded. 🌱')
+			return
+		}
 		await prisma.event.deleteMany()
 		const title = faker.music.songName()
 		const slug = faker.helpers.slugify(title)
