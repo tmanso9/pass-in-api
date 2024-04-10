@@ -31,6 +31,8 @@ COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/prisma ./prisma
 COPY --from=build /usr/src/app/src/lib ./src/lib
 
+RUN npx prisma generate
+
 EXPOSE 3000
 
 CMD ["npm", "start"]
