@@ -17,6 +17,8 @@ import { getEventAttendees } from './routes/getEventAttendees'
 import { errorHandler } from './errorHandler'
 import fastifyCors from '@fastify/cors'
 import { health } from './routes/health'
+import { homeRoute } from './routes/home'
+import fastifyHtml from 'fastify-html'
 
 const app = Fastify()
 
@@ -45,13 +47,15 @@ app.register(fastifySwaggerUi, {
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 
+app.register(fastifyHtml)
+app.register(homeRoute)
+app.register(health)
 app.register(createEvent)
 app.register(registerForEvent)
 app.register(getEvent)
 app.register(getEventAttendees)
 app.register(getAttendeeBadge)
 app.register(checkIn)
-app.register(health)
 
 app.setErrorHandler(errorHandler)
 
