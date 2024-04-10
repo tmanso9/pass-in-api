@@ -42,7 +42,10 @@ export const getEventAttendees = async (app: FastifyInstance) => {
 				where: query
 					? {
 							eventId,
-							OR: [{ name: { contains: query } }, { email: { contains: query } }]
+							OR: [
+								{ name: { contains: query, mode: 'insensitive' } },
+								{ email: { contains: query, mode: 'insensitive' } }
+							]
 					  }
 					: { eventId },
 				select: {
@@ -67,7 +70,10 @@ export const getEventAttendees = async (app: FastifyInstance) => {
 				where: query
 					? {
 							eventId,
-							OR: [{ name: { contains: query } }, { email: { contains: query } }]
+							OR: [
+								{ name: { contains: query, mode: 'insensitive' } },
+								{ email: { contains: query, mode: 'insensitive' } }
+							]
 					  }
 					: { eventId }
 			})
