@@ -90,7 +90,7 @@ To make development easier, we have provided some commands you can run from your
 
 ## API Documentation (Swagger)
 
-Once the API is running, you can access detailed documentation at [http://localhost:3000/docs](http://localhost:3000/docs).
+You can access detailed documentation at https://pass-in-api-3cbc3460e010.herokuapp.com/docs/
 
 <img src=".assets/swagger.png" width="600" alt="swagger api documentation screenshot" />
 
